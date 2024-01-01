@@ -1,18 +1,15 @@
 let userScore = 0;
 let compScore = 0;
-//modular way-->create a different function for every task
+
 const choices = document.querySelectorAll(".choice");
 const msg = document.querySelector("#msg");
 const userScorePara=document.querySelector("#user-score");
 const compScorePara=document.querySelector("#comp-score");
-//generate computer choice
+
 const genCompChoice = () => {
     const options = ["rock", "paper", "scissors"];
     const randIdx = Math.floor(Math.random() * 3);
     return options[randIdx];
-    // Math.floor removes all digits after decimal point
-    /*Math.random() generates a number between 0 to 1 randomly
-    to generate for the range 0 to 2, we can multiply it by 3*/
 };
 const drawGame = () => {
     msg.innerText="IT'S A DRAW. PLAY AGAIN";
@@ -42,12 +39,9 @@ const playGame = (userChoice) => {
     else {
         let userWin = true;
         if (userChoice === "rock") {
-            //compChoice cannot be rock as it would have been a draw
-            // either paper or scissors
             userWin = compChoice === "paper" ? false : true;
         }
         else if (userChoice === "paper") {
-            //either rock or scissors
             userWin = compChoice === "scissors" ? false : true;
         }
         else {
